@@ -1,4 +1,4 @@
-sniffer_main.o: /build/tasarim/mesh/main/sniffer_main.c \
+sniffer_main.o: /build/tasarim_mesh/mesh/main/sniffer_main.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -19,7 +19,7 @@ sniffer_main.o: /build/tasarim/mesh/main/sniffer_main.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
- /build/tasarim/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdlib.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/stdlib.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/alloca.h \
@@ -99,9 +99,10 @@ sniffer_main.o: /build/tasarim/mesh/main/sniffer_main.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/event_groups.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/timers.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/task.h \
- /build/tasarim/mesh/main/rx_tx_registerer.h \
- /build/tasarim/mesh/main/mesh_io.h /build/tasarim/mesh/main/routing.h \
- /build/tasarim/mesh/main/mesh_defs.h
+ /build/tasarim_mesh/mesh/main/rx_tx_registerer.h \
+ /build/tasarim_mesh/mesh/main/mesh_io.h \
+ /build/tasarim_mesh/mesh/main/routing.h \
+ /build/tasarim_mesh/mesh/main/mesh_defs.h
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 
@@ -143,7 +144,7 @@ sniffer_main.o: /build/tasarim/mesh/main/sniffer_main.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
-/build/tasarim/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdlib.h:
 
@@ -303,11 +304,11 @@ sniffer_main.o: /build/tasarim/mesh/main/sniffer_main.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/task.h:
 
-/build/tasarim/mesh/main/rx_tx_registerer.h:
+/build/tasarim_mesh/mesh/main/rx_tx_registerer.h:
 
-/build/tasarim/mesh/main/mesh_io.h:
+/build/tasarim_mesh/mesh/main/mesh_io.h:
 
-/build/tasarim/mesh/main/routing.h:
+/build/tasarim_mesh/mesh/main/routing.h:
 
-/build/tasarim/mesh/main/mesh_defs.h:
-/build/tasarim/mesh/main/./sniffer_main.c:
+/build/tasarim_mesh/mesh/main/mesh_defs.h:
+/build/tasarim_mesh/mesh/main/./sniffer_main.c:

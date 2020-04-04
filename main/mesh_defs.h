@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#define DEV_ID 0x0001 //TODO: mac'in son 2 byte'ı yada hashlenebilir, otomatik yap
+#define DEV_ID 0xDEEF //TODO: mac'in son 2 byte'ı yada hashlenebilir, otomatik yap
 #define BEACON_ADDR 0xbeef
 #define BROADCAST_ADDR 0xFFFF
 
@@ -26,6 +26,8 @@ typedef struct __attribute__((packed))
 	uint8_t type;
 	uint16_t data[0];
 }general_payload_t;
+
+
 
 enum packet_types{
 	data = 0,

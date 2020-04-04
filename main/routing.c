@@ -4,7 +4,7 @@
 #include "esp_log.h"
 
 #define LISTEN_NUM_OF_PACKETS_ROUTING 50
-#define REPEAT_NUM_OF_ROUTING_START_SEQ 2
+#define REPEAT_NUM_OF_ROUTING_START_SEQ 1
 #define MAX_NUM_OF_DISCARDED_PACKETS_IN_START_SEQ 500
 #define MAX_NUM_ROUTING_PACKET 50
 #define BEACON_START_PKT_CNT 10
@@ -126,7 +126,6 @@ int gather_routing_packets(){
 
 
 int send_routing_start_pkts(){
-
 	int ret;
 	general_payload_t* routing_start_frame = malloc(sizeof(general_payload_t));
 	if(routing_start_frame != NULL){
@@ -165,11 +164,11 @@ int repeatw_routing_start_packets(uint8_t device_type){
 		vTaskDelay(30 / portTICK_PERIOD_MS); //it has to be more abstarct and not dependent to target chips sdk
 		if (get_status == 0){
 			recved_payload = (general_payload_t*)recved_data->payload;
-			ESP_LOGI(TAG,"%d %d %d",recved_payload->destination,((data_unit*) recved_data)->payload[1],((data_unit*) recved_data)->payload[2]);
+			ESP_LOGI(TAG,"@repeatw_routing_start_packets destination:%d %d %d",recved_payload->destination,((data_unit*) recved_data)->payload[1],((data_unit*) recved_data)->payload[2]);
 			if((recved_payload->destination == 0xFFFF)&&(recved_payload->type == routing_seq_start)){
-				ESP_LOGI(TAG,"testetetet %d", start_seq_cnt);
+				ESP_LOGI(TAG,"routing_seq_start packet received Num:%d", start_seq_cnt);
+				send_routing_start_pkts();
 				if (start_seq_cnt < REPEAT_NUM_OF_ROUTING_START_SEQ){
-					send_routing_start_pkts();
 					start_seq_cnt++;
 				}else{
 					return 0;
@@ -239,10 +238,8 @@ int start_routing_seq(uint8_t device_type){
 
 		vTaskDelay(100/portTICK_PERIOD_MS);
 
-		if (send_routing_packets() == 0){
-			ESP_LOGI(TAG,"beacon sended first routing_packet");
-		}else{
-
+		for(int ind = 0; ind < 3; ind++){
+			while (send_routing_packets() == 0);
 		}
 
 	}

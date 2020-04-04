@@ -1,5 +1,5 @@
-rx_tx_registerer.o: /build/tasarim/mesh/main/rx_tx_registerer.c \
- /build/tasarim/mesh/main/rx_tx_registerer.h \
+rx_tx_registerer.o: /build/tasarim_mesh/mesh/main/rx_tx_registerer.c \
+ /build/tasarim_mesh/mesh/main/rx_tx_registerer.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_libc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
@@ -23,7 +23,7 @@ rx_tx_registerer.o: /build/tasarim/mesh/main/rx_tx_registerer.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/stdio.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
- /build/tasarim/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_err.h \
@@ -87,11 +87,12 @@ rx_tx_registerer.o: /build/tasarim/mesh/main/rx_tx_registerer.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/queue.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h \
- /build/tasarim/mesh/main/mesh_io.h /build/tasarim/mesh/main/mesh_defs.h \
+ /build/tasarim_mesh/mesh/main/mesh_io.h \
+ /build/tasarim_mesh/mesh/main/mesh_defs.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h
 
-/build/tasarim/mesh/main/rx_tx_registerer.h:
+/build/tasarim_mesh/mesh/main/rx_tx_registerer.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_libc.h:
 
@@ -139,7 +140,7 @@ rx_tx_registerer.o: /build/tasarim/mesh/main/rx_tx_registerer.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h:
 
-/build/tasarim/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h:
 
@@ -267,11 +268,11 @@ rx_tx_registerer.o: /build/tasarim/mesh/main/rx_tx_registerer.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h:
 
-/build/tasarim/mesh/main/mesh_io.h:
+/build/tasarim_mesh/mesh/main/mesh_io.h:
 
-/build/tasarim/mesh/main/mesh_defs.h:
+/build/tasarim_mesh/mesh/main/mesh_defs.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h:
-/build/tasarim/mesh/main/./rx_tx_registerer.c:
+/build/tasarim_mesh/mesh/main/./rx_tx_registerer.c:

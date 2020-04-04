@@ -142,6 +142,7 @@ void app_main()
     int status;
 
     vTaskDelay(100 / portTICK_PERIOD_MS);
+    //esp_wifi_set_max_tx_power(-128)
     start_routing_seq(1);
     ESP_LOGI("sniffer","routing :%hx\n", get_next_node_addr_to_beacon());
     while(1){

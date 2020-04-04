@@ -78,7 +78,7 @@ void rx_callback(void* buf, wifi_promiscuous_pkt_type_t type){
         if(memcmp(wifi_ieee80211_packet->hdr.addr1,unique,sizeof(unique)) == 0){
             payload_lenght = wifi_ieee80211_packet->b_top.tag_len;
             #ifdef DEBUG_BUILD
-            ESP_LOGI("\n\n\nsniff","GOT PACKET %hX, len:%u, rssi:%hd, payload len:%u \n RECEIVED:",wifi_ieee80211_packet->hdr.frame_ctrl, 
+            ESP_LOGI(TAG,"GOT PACKET %hX, len:%u, rssi:%hd, payload len:%u \n RECEIVED:",wifi_ieee80211_packet->hdr.frame_ctrl, 
                      lenght,rssi,payload_lenght);
             if(lenght<MAX_RX_SIZE){
                 for(int i = 0; i < payload_lenght; i++){
