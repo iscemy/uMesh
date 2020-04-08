@@ -34,7 +34,7 @@ src/partition.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/spi_flash/include/esp_partition.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/spi_flash/include/esp_spi_flash.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -109,7 +109,7 @@ src/partition.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 

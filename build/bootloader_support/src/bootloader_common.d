@@ -1,6 +1,6 @@
 src/bootloader_common.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/src/bootloader_common.c \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/features.h \
@@ -39,7 +39,7 @@ src/bootloader_common.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include/bootloader_common.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include/esp_flash_data_types.h
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h:
 

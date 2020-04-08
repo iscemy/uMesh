@@ -1,6 +1,6 @@
 src/bootloader_utility.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/src/bootloader_utility.c \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/bootloader/../include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/bootloader/../include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_config.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include/esp_flash_data_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_utility.h \
@@ -22,7 +22,7 @@ src/bootloader_utility.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_system.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/bootloader/../include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/bootloader/../include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_config.h:
 

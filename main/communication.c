@@ -10,52 +10,46 @@
 #define TAG "communication.c"
 #define MAX_QUEUE_SIZE 10
 
-int head = 0;
-int tail = 0;
+int head_q = 0;
+int tail_q = 0;
 
 general_payload_t* mesh_ng_queue[MAX_QUEUE_SIZE];
 
+int put_dpacket_uqueue(data_packet_t* packet);
 
 
 int put_meshng_work_queue(general_payload_t* packet){
     int ret = 0;
-    if(tail >= MAX_QUEUE_SIZE){
+    if(tail_q >= MAX_QUEUE_SIZE){
         ret = -1;//queue full
     }else{
-        if(packet != NULL){
-            mesh_ng_queue[tail] = packet;
-            tail++;
-        }else{
-            ret = -3;//not enough mem
-        }
+        mesh_ng_queue[tail_q] = packet;
+        tail_q++;
     }
     #ifdef DEBUG_BUILD
-        ESP_LOGI(TAG,"put_meshng_work_queue status %d head:%d, tail:%d",ret, head,tail);
+        ESP_LOGI(TAG,"put_meshng_work_queue status %d head_q:%d, tail_q:%d",ret, head_q,tail_q);
     #endif
     return ret;
 }
 
 general_payload_t* get_meshng_work_queue(int *status){
-    int ret = 0;
-    if((head < tail)||((tail == MAX_QUEUE_SIZE - 1)&&(head == MAX_QUEUE_SIZE - 1))){
-        if((tail == MAX_QUEUE_SIZE - 1)&&(head == MAX_QUEUE_SIZE - 2)){
-            head = 0;
-            tail = 0;
-        }else{
-            head++;
-        }
-        ESP_LOGI(TAG,"get_meshng_work_queue status %d head:%d, tail:%d", ret, head, tail);
-
-    }else{
-        //ESP_LOGI(TAG,"queue empty");
-        ret = -1;//queue empty
+    int ret = 0,tmp = 0;
+    //ESP_LOGI(TAG,"get_meshng_work_queue status %d head_q:%d, tail_q:%d",ret, head_q,tail_q);
+    if(head_q < tail_q){
+    	tmp = head_q;
+    	head_q++;
+    	*status = 0;
+    }else if(head_q == tail_q){
+    	*status = -1;
+    	//empty
+    	if(head_q >= MAX_QUEUE_SIZE - 1){
+    		tmp = head_q;
+    		head_q = 0;
+    		tail_q = 0;
+    	}
     }
-    #ifdef DEBUG_BUILD
-        //ESP_LOGI(TAG,"swap %d", ((data_unit*)swap)->payload[7]);
-    #endif
-    *status = ret;
    
-    return mesh_ng_queue[head];
+    return mesh_ng_queue[tmp];
 }
 
 
@@ -69,36 +63,46 @@ int put_dpacket_wqueue(data_packet_t* packet){
 		return -1;
 		//not enough mem
 	}
-
 }
 
 int packet_classifier(general_payload_t* packet){
 	uint16_t new_target_node = 0;
-	if(packet->destination == BEACON_ADDR){
-		if(packet->target == DEV_ID){
-			if(packet->type == data){		//only route data packets 
-				new_target_node = get_next_node_addr_to_beacon();
-				if(new_target_node != 0){	//is routing table exists ?
-					packet->target = new_target_node;
-					packet->sender = DEV_ID;
-					if(put_dpacket_wqueue(packet) != 0){
-						//error handling ng work queue
-					}
-				}else{
-					//routing table does not exists
+	data_packet_t *data_packet;
+	//ESP_LOGI(TAG,"packet_classifier dest:%hx target:%hx", packet->destination, packet->target);//string ise
+	if((packet->destination == BEACON_ADDR)&&(packet->target == DEV_ID)&&(packet->target != packet->destination)){
+		//ESP_LOGI(TAG,"route");//string ise
+		if(packet->type == data){		//only route data packets 
+			new_target_node = get_next_node_addr_to_beacon();
+			if(new_target_node != 0){	//is routing table exists ?
+				packet->target = new_target_node;
+				packet->sender = DEV_ID;
+				if(put_dpacket_wqueue(packet) != 0){
+					//error handling ng work queue
 				}
-
+			}else{
+				//routing table does not exists
 			}
 		}
-	}else if(packet->destination == DEV_ID){
-		//p2p comm
+	}else if((packet->destination == BEACON_ADDR)&&(packet->target == DEV_ID)){
+		//ESP_LOGI(TAG,"to me 	");//string ise
+		if(DEV_ID == BEACON_ADDR){
+			//this device is beacon and packet addressed to beacon
+			if(packet->type == data){
+				data_packet = (data_packet_t*)packet;
+				ESP_LOGI(TAG,"BEACON RECVED DATA: %s", data_packet->data_packet.data);//string ise
+				//put_dpacket_uqueue(packet);
+			}
+		}else{
+			//p2p comm
+		}
 	}
 	return 0;
 }
 
 
-int init_put_data_for_work_queue(uint8_t *data, int len, int target, int destination) {
+int init_put_for_work_queue(data_packet_bottom_t *data, int len, int target, int destination) {
 	general_payload_t* packet = malloc(len + sizeof(general_payload_t));
+	ESP_LOGI(TAG,"local packet addr: %p", packet);
 	if(packet != NULL){
 		packet->destination = destination;
 		packet->target = target;
@@ -125,8 +129,8 @@ int mesh_engine(){
 	general_payload_t *received_packet;
 	data_packet_t* packet_from_work_queue; //only data packets routed
 
+	packet_w_info = get_data(&status);//polling from recved packet queue
 	if(status == 0){
-		packet_w_info = get_data(&status);
 		received_packet = (general_payload_t*)packet_w_info->payload;
 		packet_classifier(received_packet);//received packet classified and if its a data packet, addressed to beacon 
 											//added to work queue
@@ -134,16 +138,18 @@ int mesh_engine(){
 		//cannot receive any data from mesh_io queue
 	}
 	
-	packet_from_work_queue = get_meshng_work_queue(&status);
+	packet_from_work_queue = get_meshng_work_queue(&status);//polling from work queue
+	
 	if(status == 0){
+		ESP_LOGI(TAG,"@mesh_enigne packet_from_work_queue: %p, size:%d", packet_from_work_queue, packet_from_work_queue->data_packet.size + sizeof(data_packet_t));
 		while (tx_data_blocking((unsigned char *)packet_from_work_queue, packet_from_work_queue->data_packet.size + sizeof(data_packet_t)) != 0){
 			//implement a failsafe
 		}
 		free(packet_from_work_queue);
 	}else if(status == -1){
-		//empty work queue 
+		return -1;
 	}else{
-		//queue error further checks should implemented
+		//queue error further checks should be implemented
 	}
 
 	return 0;
@@ -155,7 +161,12 @@ int mesh_engine(){
 int send_to_beacon(uint8_t* data, int len){
 
 	//this function will add packets to mesh_engines work queue
-	init_put_data_for_work_queue(data, len, BEACON_ADDR, get_next_node_addr_to_beacon());
+	data_packet_bottom_t* data_packet = malloc(sizeof(data_packet_bottom_t) + len);
+	data_packet->size = len;
+	memcpy(data_packet->data, data, data_packet->size);
+	ESP_LOGI(TAG,"Burdamiyiz packet size: %hu", data_packet->size);
+	init_put_for_work_queue(data_packet,sizeof(data_packet_bottom_t) + len, get_next_node_addr_to_beacon(), BEACON_ADDR);
+	free(data_packet);
 	return 0;
 }
 

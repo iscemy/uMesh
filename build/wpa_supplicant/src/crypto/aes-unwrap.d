@@ -1,6 +1,6 @@
 src/crypto/aes-unwrap.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/src/crypto/aes-unwrap.c \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -20,7 +20,7 @@ src/crypto/aes-unwrap.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 

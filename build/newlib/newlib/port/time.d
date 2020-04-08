@@ -30,7 +30,7 @@ newlib/port/time.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/cdefs.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/stdio.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_timer.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
@@ -125,7 +125,7 @@ newlib/port/time.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h:
 

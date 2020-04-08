@@ -16,7 +16,7 @@ src/stack_check.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/cdefs.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/stdlib.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/alloca.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_system.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h \
@@ -61,7 +61,7 @@ src/stack_check.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/alloca.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_system.h:
 

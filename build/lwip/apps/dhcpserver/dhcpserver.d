@@ -26,7 +26,7 @@ apps/dhcpserver/dhcpserver.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/stdio.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_err.h \
@@ -163,7 +163,7 @@ apps/dhcpserver/dhcpserver.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h:
 

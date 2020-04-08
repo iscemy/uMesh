@@ -102,7 +102,8 @@ sniffer_main.o: /build/tasarim_mesh/mesh/main/sniffer_main.c \
  /build/tasarim_mesh/mesh/main/rx_tx_registerer.h \
  /build/tasarim_mesh/mesh/main/mesh_io.h \
  /build/tasarim_mesh/mesh/main/routing.h \
- /build/tasarim_mesh/mesh/main/mesh_defs.h
+ /build/tasarim_mesh/mesh/main/mesh_defs.h \
+ /build/tasarim_mesh/mesh/main/communication.h
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 
@@ -311,4 +312,6 @@ sniffer_main.o: /build/tasarim_mesh/mesh/main/sniffer_main.c \
 /build/tasarim_mesh/mesh/main/routing.h:
 
 /build/tasarim_mesh/mesh/main/mesh_defs.h:
+
+/build/tasarim_mesh/mesh/main/communication.h:
 /build/tasarim_mesh/mesh/main/./sniffer_main.c:

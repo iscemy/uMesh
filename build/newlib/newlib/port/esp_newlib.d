@@ -1,6 +1,6 @@
 newlib/port/esp_newlib.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/port/esp_newlib.c \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/reent.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/reent.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
@@ -28,7 +28,7 @@ newlib/port/esp_newlib.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/unistd.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/unistd.h
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/reent.h:
 

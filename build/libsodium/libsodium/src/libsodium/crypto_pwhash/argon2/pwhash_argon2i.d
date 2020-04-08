@@ -4,7 +4,7 @@ libsodium/src/libsodium/crypto_pwhash/argon2/pwhash_argon2i.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/errno.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/opt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/port/include/time.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/time.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
@@ -63,7 +63,7 @@ libsodium/src/libsodium/crypto_pwhash/argon2/pwhash_argon2i.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/port/include/time.h:
 

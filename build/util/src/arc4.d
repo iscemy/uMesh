@@ -21,7 +21,7 @@ src/arc4.o: /build/esp8266/ESP8266_RTOS_SDK/components/util/src/arc4.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/ibus_data.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_attr.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/util_assert.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/errno.h:
@@ -68,7 +68,7 @@ src/arc4.o: /build/esp8266/ESP8266_RTOS_SDK/components/util/src/arc4.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/util/include/util_assert.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h:
 /build/esp8266/ESP8266_RTOS_SDK/components/util/src/arc4.c:

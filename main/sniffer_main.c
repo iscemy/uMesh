@@ -22,6 +22,8 @@
 #include "esp_libc.h"
 #include "mesh_io.h"
 #include "routing.h"
+#include "communication.h"
+#include "mesh_defs.h"
 #define TAG "sniffer"
 
 #define MAC_HEADER_LEN 24
@@ -141,22 +143,31 @@ void app_main()
     gpio_config(&io_conf);
     int status;
 
+    uint8_t test_str[] = "0EST_DATA_TO_BEACON 0x2222";
     vTaskDelay(100 / portTICK_PERIOD_MS);
-    //esp_wifi_set_max_tx_power(-128)
-    start_routing_seq(1);
+    esp_wifi_set_max_tx_power(-128);
+    start_routing_seq(0); //0b 1s
     ESP_LOGI("sniffer","routing :%hx\n", get_next_node_addr_to_beacon());
+    vTaskDelay(100 / portTICK_PERIOD_MS);
+	//if(send_to_beacon(test_str, sizeof(test_str)) == 0){
+
+	//}
+
     while(1){
         frame_buffer[4] += 1;
         //ESP_LOGI(TAG,"%d",esp_wifi_80211_tx(WIFI_IF_STA, beacon_raw, sizeof(beacon_raw), 1));
         //ESP_LOGI(TAG,"%d",esp_wifi_80211_tx(WIFI_IF_STA, frame_buffer+frame_buffer[4], 40, 1));
+//	    for (int index = 0; index < 5; index++){
 
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-        //send_routing_start_pkts(); 
-
-        if (data_test[0] == '9' ){
-            data_test[0] = '0';
+//		}
+        //send_to_beacon(test_str, sizeof(test_str));
+        vTaskDelay(100 / portTICK_PERIOD_MS);
+        send_routing_start_pkts(); 
+        mesh_engine();
+        if (test_str[0] == '9' ){
+            test_str[0] = '0';
         }
-        data_test[0] = data_test[0] + 1;
+        test_str[0] = test_str[0] + 1;
         
         //ESP_LOGI("sniffer","address esp_wifi_80211_tx() is :%p\n", esp_wifi_80211_tx);
    

@@ -17,7 +17,7 @@ port/esp8266/sha1.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/sha1.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/include/mbedtls/esp_config.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/config.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/limits.h \
@@ -65,7 +65,7 @@ port/esp8266/sha1.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/include/mbedtls/esp_config.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/config.h:
 

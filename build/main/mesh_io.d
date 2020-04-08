@@ -58,9 +58,7 @@ mesh_io.o: /build/tasarim_mesh/mesh/main/mesh_io.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_libc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
- /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h \
- /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
- /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h
+ /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h
 
 /build/tasarim_mesh/mesh/main/mesh_defs.h:
 
@@ -181,8 +179,4 @@ mesh_io.o: /build/tasarim_mesh/mesh/main/mesh_io.c \
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h:
-
-/build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h:
-
-/build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h:
 /build/tasarim_mesh/mesh/main/./mesh_io.c:

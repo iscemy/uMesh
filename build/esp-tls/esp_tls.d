@@ -25,7 +25,7 @@ esp_tls.o: /build/esp8266/ESP8266_RTOS_SDK/components/esp-tls/esp_tls.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/unistd.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/unistd.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/posix/sys/socket.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/sockets.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/opt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h \
@@ -161,7 +161,7 @@ esp_tls.o: /build/esp8266/ESP8266_RTOS_SDK/components/esp-tls/esp_tls.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/posix/sys/socket.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/sockets.h:
 

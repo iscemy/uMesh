@@ -20,7 +20,7 @@ src/sha.o: /build/esp8266/ESP8266_RTOS_SDK/components/util/src/sha.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/util_assert.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/errno.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/esp_sha.h \
@@ -74,7 +74,7 @@ src/sha.o: /build/esp8266/ESP8266_RTOS_SDK/components/util/src/sha.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/util/include/util_assert.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h:
 

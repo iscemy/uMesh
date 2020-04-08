@@ -59,7 +59,7 @@ int post_data(uint8_t *buf,uint16_t len, int8_t rssi, uint32_t sys_time){
         }
     }
     #ifdef DEBUG_BUILD
-        ESP_LOGI(TAG,"post_data status %d head:%d, tail:%d",ret, head,tail);
+        //ESP_LOGI(TAG,"post_data status %d head:%d, tail:%d",ret, head,tail);
     #endif
     return ret;
 }
@@ -68,29 +68,29 @@ int post_data(uint8_t *buf,uint16_t len, int8_t rssi, uint32_t sys_time){
 //recalling this function without saving packet will cause data losses
 //
 data_unit* get_data(int* status){
-    int ret = 0;
-    if((head < tail)||((tail == MAX_QUEUE_SIZE - 1)&&(head == MAX_QUEUE_SIZE - 1))){
+    int ret = 0,tmp = 0;
+    //ESP_LOGI(TAG,"get_data status %d head:%d, tail:%d",ret, head,tail);
+    if(head < tail){
         copy_data_unit_to_swap(data_unit_p_buffer[head]);
-        free(data_unit_p_buffer[head]);
-        if((tail == MAX_QUEUE_SIZE - 1)&&(head == MAX_QUEUE_SIZE - 2)){
-            head = 0;
-            tail = 0;
-        }else{
-            head++;
-        }
-        ESP_LOGI(TAG,"get_data status %d head:%d, tail:%d", ret, head, tail);
-
-    }else{
-        //ESP_LOGI(TAG,"queue empty");
-        ret = -1;//queue empty
+        free(data_unit_p_buffer[head]);   	
+    	tmp = head;
+    	head++;
+    	*status = 0;
+    }else if(head == tail){
+    	*status = -1;
+    	//empty
+    	if(head >= MAX_QUEUE_SIZE - 1){
+    		tmp = head;
+    		head = 0;
+    		tail = 0;
+    	}
     }
+   
+
     #ifdef DEBUG_BUILD
-        //ESP_LOGI(TAG,"swap %d", ((data_unit*)swap)->payload[7]);
+        //ESP_LOGI(TAG,"get_data status %d head:%d, tail:%d", ret, head, tail);
     #endif
-    *status = ret;
-   	if(ret == 0){
-   		 
-   	} 
+
    
     return (data_unit*)swap;
 }

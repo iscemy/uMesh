@@ -2,7 +2,7 @@ apps/multi-threads/sockets_mt.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/apps/multi-threads/sockets_mt.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/opt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/port/include/time.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/time.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
@@ -120,7 +120,7 @@ apps/multi-threads/sockets_mt.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/port/include/time.h:
 

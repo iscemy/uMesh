@@ -1,6 +1,6 @@
 src/fast_crypto/fast_crypto_internal-cipher.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/src/fast_crypto/fast_crypto_internal-cipher.c \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/common.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/port/include/os.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_types.h \
@@ -73,7 +73,7 @@ src/fast_crypto/fast_crypto_internal-cipher.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/esp8266/include/aes_alt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/esp_aes.h
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/common.h:
 

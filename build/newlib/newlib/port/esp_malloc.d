@@ -22,7 +22,7 @@ newlib/port/esp_malloc.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -99,7 +99,7 @@ newlib/port/esp_malloc.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 

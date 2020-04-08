@@ -5,7 +5,7 @@
 
 #define LISTEN_NUM_OF_PACKETS_ROUTING 50
 #define REPEAT_NUM_OF_ROUTING_START_SEQ 1
-#define MAX_NUM_OF_DISCARDED_PACKETS_IN_START_SEQ 500
+#define MAX_NUM_OF_DISCARDED_PACKETS_IN_START_SEQ 200
 #define MAX_NUM_ROUTING_PACKET 50
 #define BEACON_START_PKT_CNT 10
 #define TAG "routing.c"
@@ -146,7 +146,7 @@ int send_routing_start_pkts(){
 int repeatw_routing_start_packets(uint8_t device_type){
 	//this function may cause data losses
 	//cagirildigi zaman queue de olan ve routing paketi olmayan paketler kaybolacak.
-	int get_status = -1, start_seq_cnt = 0;
+	int get_status = -1, start_seq_cnt = 0, ret = -1;
 	general_payload_t* recved_payload;
 	data_unit* recved_data = NULL;
 
@@ -161,7 +161,7 @@ int repeatw_routing_start_packets(uint8_t device_type){
 	}
 	for(int s = 0; s < MAX_NUM_OF_DISCARDED_PACKETS_IN_START_SEQ; s++){
 		recved_data = get_data(&get_status);
-		vTaskDelay(30 / portTICK_PERIOD_MS); //it has to be more abstarct and not dependent to target chips sdk
+		vTaskDelay(10 / portTICK_PERIOD_MS); //it has to be more abstarct and not dependent to target chips sdk
 		if (get_status == 0){
 			recved_payload = (general_payload_t*)recved_data->payload;
 			ESP_LOGI(TAG,"@repeatw_routing_start_packets destination:%d %d %d",recved_payload->destination,((data_unit*) recved_data)->payload[1],((data_unit*) recved_data)->payload[2]);
@@ -171,13 +171,13 @@ int repeatw_routing_start_packets(uint8_t device_type){
 				if (start_seq_cnt < REPEAT_NUM_OF_ROUTING_START_SEQ){
 					start_seq_cnt++;
 				}else{
-					return 0;
+					ret = 0;
 				}
 			}
 			
 		}
 	}
-	return -1;
+	return ret;
 }
 
 
@@ -212,7 +212,7 @@ int start_routing_seq(uint8_t device_type){
 			}
 			
 		#endif
-
+		vTaskDelay(30 / portTICK_PERIOD_MS);
 		if (send_routing_packets() == 0){
 			ESP_LOGI(TAG,"station sended first routing_packet");
 		}else{
@@ -236,7 +236,7 @@ int start_routing_seq(uint8_t device_type){
 			ESP_LOGI(TAG,"added first rtable element to table,%d", ((routing_packet_t*)ret)->routing_packet_info_data.data[1]);
 		}
 
-		vTaskDelay(100/portTICK_PERIOD_MS);
+		vTaskDelay(2000/portTICK_PERIOD_MS);
 
 		for(int ind = 0; ind < 3; ind++){
 			while (send_routing_packets() == 0);

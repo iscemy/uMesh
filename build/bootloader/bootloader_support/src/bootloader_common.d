@@ -1,6 +1,6 @@
 src/bootloader_common.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/src/bootloader_common.c \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/bootloader/../include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/bootloader/../include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/xtensa/hal.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_err.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
@@ -18,7 +18,7 @@ src/bootloader_common.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include/bootloader_common.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include/esp_flash_data_types.h
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/bootloader/../include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/bootloader/../include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/xtensa/hal.h:
 

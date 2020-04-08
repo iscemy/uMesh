@@ -21,7 +21,7 @@ libcoap/src/encode.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/coap/port/include/coap_config.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/coap/port/include/coap_config_posix.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/posix/sys/socket.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/sockets.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/opt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h \
@@ -101,7 +101,7 @@ libcoap/src/encode.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/posix/sys/socket.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/sockets.h:
 

@@ -1,6 +1,6 @@
 src/bootloader_utility.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/src/bootloader_utility.c \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/param.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/config.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/ieeefp.h \
@@ -49,7 +49,7 @@ src/bootloader_utility.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_system.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/param.h:
 

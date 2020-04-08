@@ -1,6 +1,6 @@
 src/esp_image_format.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/src/esp_image_format.c \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -47,7 +47,7 @@ src/esp_image_format.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_random.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_sha.h
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 

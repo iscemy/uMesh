@@ -12,7 +12,7 @@ library/ssl_lib.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/internal/ssl_cert.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/internal/ssl_dbg.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/platform/ssl_opt.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/platform/ssl_port.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/cdefs.h \
@@ -65,7 +65,7 @@ library/ssl_lib.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/platform/ssl_opt.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/platform/ssl_port.h:
 

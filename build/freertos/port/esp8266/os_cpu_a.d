@@ -15,7 +15,7 @@ port/esp8266/os_cpu_a.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/xtensa_context.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/xtensa_timer.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
- /build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h \
+ /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/xtensa_rtos.h
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/xtensa/coreasm.h:
@@ -48,7 +48,7 @@ port/esp8266/os_cpu_a.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
-/build/esp8266/ESP8266_RTOS_SDK/examples/wifi/sniffer/build/include/sdkconfig.h:
+/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/xtensa_rtos.h:
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/os_cpu_a.S:

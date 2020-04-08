@@ -1,2 +1,2 @@
-utilities.o: /build/tasarim/mesh/main/utilities.c
-/build/tasarim/mesh/main/./utilities.c:
+utilities.o: /build/tasarim_mesh/mesh/main/utilities.c
+/build/tasarim_mesh/mesh/main/./utilities.c:

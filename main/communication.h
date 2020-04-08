@@ -14,3 +14,7 @@ typedef struct __attribute__((packed))
 	general_payload_t header;
 	data_packet_bottom_t data_packet;
 }data_packet_t;
+
+
+int send_to_beacon(uint8_t* data, int len);
+int mesh_engine();

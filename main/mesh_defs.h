@@ -3,14 +3,14 @@
 #include <stdlib.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#define DEV_ID 0xDEEF //TODO: mac'in son 2 byte'ı yada hashlenebilir, otomatik yap
+#define DEV_ID 0xbeef//TODO: mac'in son 2 byte'ı yada hashlenebilir, otomatik yap
 #define BEACON_ADDR 0xbeef
 #define BROADCAST_ADDR 0xFFFF
 
 /*
 TODO:Proper error check/debug 
 */
-#define DEBUG_BUILD
+//#define DEBUG_BUILD
 /*
 enum mesh_status {
 	MESH_ERROR,
