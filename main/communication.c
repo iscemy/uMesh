@@ -1,21 +1,22 @@
 #include "communication.h"
-
+#include "mesh_defs.h"
 #include "routing.h"
 #include "esp_log.h"
 #include "mesh_defs.h"
 #include "mesh_io.h"
 #include <string.h>
-
+#include "hash_map.h"
 
 #define TAG "communication.c"
 #define MAX_QUEUE_SIZE 10
+#define BROADCAST_REPEAT_N 3
 
 int head_q = 0;
 int tail_q = 0;
 
 general_payload_t* mesh_ng_queue[MAX_QUEUE_SIZE];
 
-int put_dpacket_uqueue(data_packet_t* packet);
+int put_user_queue(general_payload_t* packet);
 
 
 int put_meshng_work_queue(general_payload_t* packet){
@@ -68,7 +69,7 @@ int put_dpacket_wqueue(data_packet_t* packet){
 int packet_classifier(general_payload_t* packet){
 	uint16_t new_target_node = 0;
 	data_packet_t *data_packet;
-	//ESP_LOGI(TAG,"packet_classifier dest:%hx target:%hx", packet->destination, packet->target);//string ise
+	ESP_LOGI(TAG,"packet_classifier dest:%hx target:%hx", packet->destination, packet->target);//string ise
 	if((packet->destination == BEACON_ADDR)&&(packet->target == DEV_ID)&&(packet->target != packet->destination)){
 		//ESP_LOGI(TAG,"route");//string ise
 		if(packet->type == data){		//only route data packets 
@@ -76,6 +77,7 @@ int packet_classifier(general_payload_t* packet){
 			if(new_target_node != 0){	//is routing table exists ?
 				packet->target = new_target_node;
 				packet->sender = DEV_ID;
+				ESP_LOGI(TAG,"packet_classifier route to beacon dest:%hx target:%hx", packet->destination, packet->target);//string ise
 				if(put_dpacket_wqueue(packet) != 0){
 					//error handling ng work queue
 				}
@@ -90,10 +92,24 @@ int packet_classifier(general_payload_t* packet){
 			if(packet->type == data){
 				data_packet = (data_packet_t*)packet;
 				ESP_LOGI(TAG,"BEACON RECVED DATA: %s", data_packet->data_packet.data);//string ise
-				//put_dpacket_uqueue(packet);
+				put_user_queue(packet);
 			}
 		}else{
 			//p2p comm
+		}
+	}else if((packet->destination == BROADCAST_ADDR)&&(packet->target == BROADCAST_ADDR)){
+		//these packets should repeated n times
+		int *times_repeated = find_entry(packet->seq_id);
+		int times_r;
+		if(times_repeated == NULL){
+			insert_entry(packet->seq_id, 1, 0);
+		}else{
+			times_r = *times_repeated;
+			if(times_r < BROADCAST_REPEAT_N){
+				delete_entry(packet->seq_id);
+				insert_entry(packet->seq_id, 1, times_r + 1);
+				put_user_queue(packet);
+			}
 		}
 	}
 	return 0;
@@ -162,11 +178,40 @@ int send_to_beacon(uint8_t* data, int len){
 
 	//this function will add packets to mesh_engines work queue
 	data_packet_bottom_t* data_packet = malloc(sizeof(data_packet_bottom_t) + len);
-	data_packet->size = len;
-	memcpy(data_packet->data, data, data_packet->size);
-	ESP_LOGI(TAG,"Burdamiyiz packet size: %hu", data_packet->size);
-	init_put_for_work_queue(data_packet,sizeof(data_packet_bottom_t) + len, get_next_node_addr_to_beacon(), BEACON_ADDR);
-	free(data_packet);
+	if (data_packet != NULL){
+		if((meshng_state == routing_end)||(meshng_state == no_routing)){
+			data_packet->size = len;
+			memcpy(data_packet->data, data, data_packet->size);
+			ESP_LOGI(TAG,"Burdamiyiz packet size: %hu %hx", data_packet->size,get_next_node_addr_to_beacon());
+			init_put_for_work_queue(data_packet,sizeof(data_packet_bottom_t) + len, get_next_node_addr_to_beacon(), BEACON_ADDR);
+			free(data_packet);
+		}else{
+			return -2;//routing not inited yet
+		}
+	}else{
+		return -1;//not enough mem
+	}
 	return 0;
 }
+
+int send_broadcast_data_packet(uint8_t* data, int len){
+
+	//this function will add packets to mesh_engines work queue
+	data_packet_bottom_t* data_packet = malloc(sizeof(data_packet_bottom_t) + len);
+	if (data_packet != NULL){
+		if(meshng_state == routing_end){
+			data_packet->size = len;
+			memcpy(data_packet->data, data, data_packet->size);
+			ESP_LOGI(TAG,"Burdamiyiz packet size: %hu", data_packet->size);
+			init_put_for_work_queue(data_packet,sizeof(data_packet_bottom_t) + len, BROADCAST_ADDR, BROADCAST_ADDR);
+			free(data_packet);
+		}else{
+			return -2;//routing not inited yet
+		}
+	}else{
+		return -1;//not enough mem
+	}
+	return 0;
+}
+
 

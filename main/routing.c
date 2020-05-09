@@ -2,7 +2,7 @@
 #include "mesh_io.h"
 #include <string.h>
 #include "esp_log.h"
-
+#include "hash_map.h"
 #define LISTEN_NUM_OF_PACKETS_ROUTING 50
 #define REPEAT_NUM_OF_ROUTING_START_SEQ 1
 #define MAX_NUM_OF_DISCARDED_PACKETS_IN_START_SEQ 200
@@ -41,7 +41,11 @@ int send_routing_packets(){
 		memcpy(general_payload->data, routing_packet_array[index], sizeof(routing_packet_t) + len);
 		
 		ret = tx_data_blocking((unsigned char *)general_payload, size);
+		if(ret != 0){
+			break;
+		}
 	}
+	ESP_LOGI(TAG,"send_routing_packets ret %d", ret);
 	return ret;
 }
 
@@ -71,7 +75,6 @@ routing_packet_info_t* init_routing_packets_table(uint16_t tx_from, uint16_t rx_
 int gather_routing_packets(){
 	//tüm cihazlar routing durumuna geldiği zaman
 	int get_status,failsafe = 0,recved_packets = 0, rloop = 0;
-
 	data_unit* recvd_data;
 	general_payload_t* recved_payload;
 	routing_packet_info_t* rpi_s;
@@ -80,12 +83,11 @@ int gather_routing_packets(){
 	while (recved_packets < LISTEN_NUM_OF_PACKETS_ROUTING){
 		recvd_data = get_data(&get_status); // (a)
 		recved_payload = (general_payload_t*)recvd_data->payload;
-		vTaskDelay(30 / portTICK_PERIOD_MS); //it has to be more abstarct and not dependent to target chips sdk-11
+		vTaskDelay(30 / portTICK_PERIOD_MS); //it has to be more abstarct and not dependent to target chips sdk-11	
+		//ESP_LOGI(TAG,"routing.c routing_broadcast @ gather_routing_packets %d", recved_payload->type);	
+		if(get_status == 0){
+			if((recved_payload->destination == 0xFFFF)&&(recved_payload->type == routing_broadcast)){
 
-		//ESP_LOGI(TAG,"routing.c routing_broadcast @ gather_routing_packets %d", recved_payload->type);
-		if((recved_payload->destination == 0xFFFF)&&(recved_payload->type == routing_broadcast)){
-			//
-			if(get_status == 0){
 				rloop = 0;
 				routing_packet = recved_payload->data;
 				routing_rec = (routing_packet->routing_packet_info_data.data);
@@ -145,11 +147,12 @@ int send_routing_start_pkts(){
 
 int repeatw_routing_start_packets(uint8_t device_type){
 	//this function may cause data losses
-	//cagirildigi zaman queue de olan ve routing paketi olmayan paketler kaybolacak.
+	//cagirildigi zaman queue de olan tüm paketler kaybolacak.
 	int get_status = -1, start_seq_cnt = 0, ret = -1;
+	int8_t rssi = -23;
 	general_payload_t* recved_payload;
 	data_unit* recved_data = NULL;
-
+	flush_map();
 	if(device_type == beacon){
 		for (int i = 0; i < BEACON_START_PKT_CNT; i++){
 			while (send_routing_start_pkts() != 0){
@@ -164,8 +167,14 @@ int repeatw_routing_start_packets(uint8_t device_type){
 		vTaskDelay(10 / portTICK_PERIOD_MS); //it has to be more abstarct and not dependent to target chips sdk
 		if (get_status == 0){
 			recved_payload = (general_payload_t*)recved_data->payload;
-			ESP_LOGI(TAG,"@repeatw_routing_start_packets destination:%d %d %d",recved_payload->destination,((data_unit*) recved_data)->payload[1],((data_unit*) recved_data)->payload[2]);
+			ESP_LOGI(TAG,"@repeatw_routing_start_packets destination:%d %d %d rssi:%d",recved_payload->destination,((data_unit*) recved_data)->payload[1],
+				((data_unit*) recved_data)->payload[2], recved_data->rssi);
+			rssi = recved_data->rssi;
 			if((recved_payload->destination == 0xFFFF)&&(recved_payload->type == routing_seq_start)){
+
+				if(find_entry(recved_payload->sender) == NULL){
+					insert_entry(recved_payload->sender,1,(void*)&rssi);
+				}
 				ESP_LOGI(TAG,"routing_seq_start packet received Num:%d", start_seq_cnt);
 				send_routing_start_pkts();
 				if (start_seq_cnt < REPEAT_NUM_OF_ROUTING_START_SEQ){
@@ -180,9 +189,13 @@ int repeatw_routing_start_packets(uint8_t device_type){
 	return ret;
 }
 
+void *rssi_table;
+int rssi_table_size = 0;
+
 
 int start_routing_seq(uint8_t device_type){
 	ESP_LOGI(TAG,"start_routing_seq");
+	struct entry *rssi_element;
 	while (repeatw_routing_start_packets(device_type) != 0){
 
 	}
@@ -218,6 +231,7 @@ int start_routing_seq(uint8_t device_type){
 		}else{
 
 		}
+	vTaskDelay(200/portTICK_PERIOD_MS);
 
 
 	}else if(device_type == beacon){
@@ -238,15 +252,43 @@ int start_routing_seq(uint8_t device_type){
 
 		vTaskDelay(2000/portTICK_PERIOD_MS);
 
-		for(int ind = 0; ind < 3; ind++){
-			while (send_routing_packets() == 0);
+		for(int ind = 0; ind < 8; ind++){
+			ESP_LOGI(TAG,"SENDING ROUTING PACKET");
+			while (send_routing_packets() != 0);
+			vTaskDelay(200/portTICK_PERIOD_MS);
+			ESP_LOGI(TAG,"SENDED ROUTING PACKET\n");
 		}
 
 	}
-	
+		
+		int rssi_element_size = get_num_of_enrties(), t_index = 0;
+		rssi_table_element_t *rssi_table_element;
+
+		ESP_LOGI(TAG,"total entry size: %d", rssi_element_size);
+		rssi_table = malloc(rssi_element_size*sizeof(rssi_table_element_t));
+		rssi_element = get_an_entry();
+
+		while(rssi_element != NULL){
+			rssi_table_element = rssi_table + sizeof(rssi_table_element)*t_index; 
+
+			rssi_table_element->addr = rssi_element->key;
+			rssi_table_element->rssi = (int8_t)*rssi_element->data;
+			ESP_LOGI(TAG,"+%d to %p ADDR: %hx RSSI:%d", sizeof(rssi_table_element_t), rssi_table_element, rssi_table_element->addr, rssi_table_element->rssi);
+
+			rssi_element = get_an_entry();
+			t_index++;
+		}
+		rssi_table_size = t_index*sizeof(rssi_table_element_t);
+		ESP_LOGI(TAG,"RSSI_TABLE: %d %p", rssi_table_size, rssi_table);
+		ESP_LOGI(TAG,"TRSSITABLEEEs %p %hx %d %hx %d", rssi_table, ((rssi_table_element_t *)rssi_table)->addr,((rssi_table_element_t *)rssi_table)->rssi,
+				((rssi_table_element_t *)rssi_table + 4)->addr,((rssi_table_element_t *)rssi_table + 4)->rssi);
 
 	return 0;
+}
 
+void* get_rssi_table(int *size){
+	*size = rssi_table_size;
+	return rssi_table;
 }
 
 uint16_t get_next_node_addr(uint16_t destination){
@@ -257,16 +299,25 @@ uint16_t get_next_node_addr(uint16_t destination){
 
 uint16_t get_next_node_addr_to_beacon(){
 	//an algortihm based upon rssi of total routing path can be implemented.
-	int len;
-	uint16_t *ret;
-	if(routing_packet_array_index > 0){
-		routing_packet_t *routing_packet = routing_packet_array[routing_packet_array_index - 1];
-		len = routing_packet->routing_packet_info_data.len;
-		ret = routing_packet->routing_packet_info_data.data;
-		if(len > 1){
-			return (routing_packet->routing_packet_info_data.data[(2*(len) - 3)]<<8) + (routing_packet->routing_packet_info_data.data[(2*(len) - 4)]);
+	/* dirty dram flush solve*/
+	if(meshng_state == no_routing){
+		ESP_LOGI(TAG,"get_next_node_addr no_routing %hx",*((uint16_t*)0x60001200));
+		return *((uint16_t*)0x60001200);
+	}else{
+		int len;
+		uint16_t *ret;
+		if(routing_packet_array_index > 0){
+			routing_packet_t *routing_packet = routing_packet_array[routing_packet_array_index - 1];
+			len = routing_packet->routing_packet_info_data.len;
+			ret = routing_packet->routing_packet_info_data.data;
+			if(len > 1){
+				*((uint16_t*)0x60001200) = (routing_packet->routing_packet_info_data.data[(2*(len) - 3)]<<8) + (routing_packet->routing_packet_info_data.data[(2*(len) - 4)]);
+				return (routing_packet->routing_packet_info_data.data[(2*(len) - 3)]<<8) + (routing_packet->routing_packet_info_data.data[(2*(len) - 4)]);
+			}
+			//ESP_LOGI(TAG,"@get_next_node_addr_to_beacon addr:%hx, num:%d",ret[0],routing_packet_array_index);
 		}
-		//ESP_LOGI(TAG,"@get_next_node_addr_to_beacon addr:%hx, num:%d",ret[0],routing_packet_array_index);
 	}
 	return 0;
 }
+
+

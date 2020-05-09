@@ -96,14 +96,17 @@ sniffer_main.o: /build/tasarim_mesh/mesh/main/sniffer_main.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/pin_mux_register.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/gpio_register.h \
+ /build/esp8266/ESP8266_RTOS_SDK/components/spi_flash/include/esp_spi_flash.h \
+ /build/esp8266/ESP8266_RTOS_SDK/components/spi_flash/include/spi_flash.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/event_groups.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/timers.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/task.h \
  /build/tasarim_mesh/mesh/main/rx_tx_registerer.h \
- /build/tasarim_mesh/mesh/main/mesh_io.h \
- /build/tasarim_mesh/mesh/main/routing.h \
  /build/tasarim_mesh/mesh/main/mesh_defs.h \
- /build/tasarim_mesh/mesh/main/communication.h
+ /build/tasarim_mesh/mesh/main/mesh.h \
+ /build/tasarim_mesh/mesh/main/softuart.h \
+ /build/tasarim_mesh/mesh/main/sensor.h \
+ /build/tasarim_mesh/mesh/main/product_main.h
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 
@@ -299,6 +302,10 @@ sniffer_main.o: /build/tasarim_mesh/mesh/main/sniffer_main.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/gpio_register.h:
 
+/build/esp8266/ESP8266_RTOS_SDK/components/spi_flash/include/esp_spi_flash.h:
+
+/build/esp8266/ESP8266_RTOS_SDK/components/spi_flash/include/spi_flash.h:
+
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/event_groups.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/timers.h:
@@ -307,11 +314,13 @@ sniffer_main.o: /build/tasarim_mesh/mesh/main/sniffer_main.c \
 
 /build/tasarim_mesh/mesh/main/rx_tx_registerer.h:
 
-/build/tasarim_mesh/mesh/main/mesh_io.h:
-
-/build/tasarim_mesh/mesh/main/routing.h:
-
 /build/tasarim_mesh/mesh/main/mesh_defs.h:
 
-/build/tasarim_mesh/mesh/main/communication.h:
+/build/tasarim_mesh/mesh/main/mesh.h:
+
+/build/tasarim_mesh/mesh/main/softuart.h:
+
+/build/tasarim_mesh/mesh/main/sensor.h:
+
+/build/tasarim_mesh/mesh/main/product_main.h:
 /build/tasarim_mesh/mesh/main/./sniffer_main.c:

@@ -6,7 +6,7 @@
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
    CONDITIONS OF ANY KIND, either express or implied.
 */
-
+//#define configUSE_PREEMPTION 0
 #include <string.h>
 #include "esp_wifi.h"
 #include "esp_system.h"
@@ -15,15 +15,19 @@
 #include "esp_event_loop.h"
 #include "nvs_flash.h"
 #include <driver/gpio.h>
+#include <esp_spi_flash.h>
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
 #include "rx_tx_registerer.h"
 #include "esp_libc.h"
-#include "mesh_io.h"
-#include "routing.h"
-#include "communication.h"
-#include "mesh_defs.h"
+
+#include "mesh.h"
+#include "softuart.h"
+#include "sensor.h"
+#include "product_main.h"
+
 #define TAG "sniffer"
 
 #define MAC_HEADER_LEN 24
@@ -102,78 +106,53 @@ static void initialise_wifi(void)
     ESP_ERROR_CHECK(esp_wifi_start());
 }
 
-static void print_task(void* pvParameters){
 
-    int status;
-    while(1){
-        if(gpio_get_level(GPIO_Pin_1) == 1){
-            data_unit* new_data = get_data(&status);
-            if(status == 0){
-                ESP_LOGI("recved data:","%s",new_data->payload);
-            }else if(status == -1){
-                //ESP_LOGI("print_task","empty queue:");
-            }
-        }
-        vTaskDelay(10 / portTICK_PERIOD_MS);
-    }
-}
-
-void app_main()
+void init_hw(struct meshng_parameters_t* parameters)
 {
     ESP_ERROR_CHECK(nvs_flash_init());
     initialise_wifi();
     xTaskCreate(&sniffer_task, "sniffer_task", 2048, NULL, 10, NULL);
     //xTaskCreate(&start_routing_seq, "routing_task", 2048, NULL, 9, NULL);
     //xTaskCreate(&, "print_task", 2048, NULL, 10, NULL);
-    char frame_buffer [400];
-    frame_buffer[0] = 0x08; // Version (B0-1): 00 (802.11), Type (B2-3): 10 (Data) Subtype: 0000 (Data) _ 0000100 = 0x08
-    frame_buffer[1] = 0x03;
-    frame_buffer[2] = 0x00;
-    frame_buffer[3] = 0x00;
+
   
     esp_wifi_set_channel(4,WIFI_SECOND_CHAN_NONE);
          
-    unsigned char data_test[] = "0esdasdasdasdasdasdasdasdasdasd3trasdasdasd";
-    gpio_config_t io_conf;
-    io_conf.intr_type = GPIO_INTR_DISABLE;
-    io_conf.mode = GPIO_MODE_INPUT;
-    io_conf.pin_bit_mask = GPIO_Pin_0;
-    io_conf.pull_down_en = 0;
-    io_conf.pull_up_en = 0;
-    gpio_config(&io_conf);
-    int status;
+//   uint8_t test_str[] = "0EST_DATA_TO_BEACON 0x2222";
+//   const char testasd[] = "assasdasd";
 
-    uint8_t test_str[] = "0EST_DATA_TO_BEACON 0x2222";
-    vTaskDelay(100 / portTICK_PERIOD_MS);
     esp_wifi_set_max_tx_power(-128);
-    start_routing_seq(0); //0b 1s
-    ESP_LOGI("sniffer","routing :%hx\n", get_next_node_addr_to_beacon());
-    vTaskDelay(100 / portTICK_PERIOD_MS);
-	//if(send_to_beacon(test_str, sizeof(test_str)) == 0){
+    //start_routing_seq(0); //0b 1s
+//    ESP_LOGI("sniffer","routing :%hx\n", get_next_node_addr_to_beacon());
+   //struct meshng_parameters_t parameters;
+   vTaskDelay(100 / portTICK_PERIOD_MS);
+   //start_meshng(sta,0x2222);
+   ESP_LOGI(TAG,"MESHNG START: %ld",xTaskCreate(&start_meshng, "routing_task", 4096, parameters, 11, NULL));
+//   xTaskCreate(&start_meshng, "routing_task", 2048, &parameters, 9, NULL);
+    
+//	if(send_to_beacon(test_str, sizeof(test_str)) == 0){
 
-	//}
+//	}					   rx  tx
 
-    while(1){
-        frame_buffer[4] += 1;
+
+ //   softuart_open(0, 9600, 14, 13);
+ //   init_sensors();
+ //   sensor_data_packet_t sensor_datas;
+ //   char flash_w_test = "123";
+
+
+    //product_main_task();
+    //while(1){
         //ESP_LOGI(TAG,"%d",esp_wifi_80211_tx(WIFI_IF_STA, beacon_raw, sizeof(beacon_raw), 1));
         //ESP_LOGI(TAG,"%d",esp_wifi_80211_tx(WIFI_IF_STA, frame_buffer+frame_buffer[4], 40, 1));
 //	    for (int index = 0; index < 5; index++){
 
 //		}
-        //send_to_beacon(test_str, sizeof(test_str));
-        vTaskDelay(100 / portTICK_PERIOD_MS);
-        send_routing_start_pkts(); 
-        mesh_engine();
-        if (test_str[0] == '9' ){
-            test_str[0] = '0';
-        }
-        test_str[0] = test_str[0] + 1;
         
-        //ESP_LOGI("sniffer","address esp_wifi_80211_tx() is :%p\n", esp_wifi_80211_tx);
+
+
+
    
-        //(*tx_func)(WIFI_IF_STA, beacon_raw, sizeof(beacon_raw), 1);
-        //(*tx_func)(0, beacon_raw, sizeof(beacon_raw), 1);
-        
-    }
+   // }
 
 }

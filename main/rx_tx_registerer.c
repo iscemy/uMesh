@@ -75,11 +75,12 @@ void rx_callback(void* buf, wifi_promiscuous_pkt_type_t type){
     uint8_t payload_lenght;
     int8_t rssi = promiscuous_pkt->rx_ctrl.rssi;
     if(wifi_ieee80211_packet->hdr.frame_ctrl == 0x0080  ){
+     //ESP_LOGI(TAG,"GOT PACKET");
         if(memcmp(wifi_ieee80211_packet->hdr.addr1,unique,sizeof(unique)) == 0){
             payload_lenght = wifi_ieee80211_packet->b_top.tag_len;
             #ifdef DEBUG_BUILD
-            ESP_LOGI(TAG,"GOT PACKET %hX, len:%u, rssi:%hd, payload len:%u \n RECEIVED:",wifi_ieee80211_packet->hdr.frame_ctrl, 
-                     lenght,rssi,payload_lenght);
+            ESP_LOGI(TAG,"GOT PACKET %hX, len:%u, rssi:%hd, payload len:%u seq_id: %uh \n RECEIVED:",wifi_ieee80211_packet->hdr.frame_ctrl, 
+                     lenght,rssi,payload_lenght, ((general_payload_t*)wifi_ieee80211_packet->payload)->seq_id);
             if(lenght<MAX_RX_SIZE){
                 for(int i = 0; i < payload_lenght; i++){
                     printf("%hx ",*(wifi_ieee80211_packet->payload+i));
@@ -108,13 +109,17 @@ void* register_rx_tx(void *tx){
 
 char buf[300];
 fuesp_t *buffer = (fuesp_t*)buf;
+uint8_t local_seq = 0;
+int tx_data_blocking(general_payload_t *buf_payload, unsigned short len){
 
-int tx_data_blocking(unsigned char *buf, unsigned short len){
+	unsigned char *buff = buf_payload;
+	buf_payload->seq_id = local_seq;
+	local_seq++;
 	ESP_LOGI(TAG,"@ tx_data_blocking %d", len);
     if(len < 75){
         buffer->hdr.frame_ctrl = 0x0080;
         buffer->b_top.tag_len = len;
-        memcpy(buffer->payload,buf,len); 
+        memcpy(buffer->payload,buff,len); 
         memcpy(buffer->hdr.addr1,unique,6);
 	    return hw_tx_adapter(buffer, sizeof(wifi_ieee80211_mac_hdr_t)+sizeof(wifi_ieee80211_beacon_top_t)+len);
     }else{

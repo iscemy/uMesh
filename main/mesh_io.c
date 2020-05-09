@@ -2,7 +2,7 @@
 #include "mesh_io.h"
 #include "esp_libc.h"
 #include <string.h>
-#define MAX_QUEUE_SIZE 10
+#define MAX_QUEUE_SIZE 70
 #define SWAP_SIZE 300
 
 #ifdef DEBUG_BUILD
@@ -59,7 +59,7 @@ int post_data(uint8_t *buf,uint16_t len, int8_t rssi, uint32_t sys_time){
         }
     }
     #ifdef DEBUG_BUILD
-        //ESP_LOGI(TAG,"post_data status %d head:%d, tail:%d",ret, head,tail);
+        ESP_LOGI(TAG,"post_data status %d head:%d, tail:%d",ret, head,tail);
     #endif
     return ret;
 }

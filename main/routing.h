@@ -1,5 +1,5 @@
-#include "mesh_defs.h"
 #pragma once
+#include "mesh_defs.h"
 typedef struct __attribute__((packed))
 {
 	int8_t rssi;
@@ -26,7 +26,15 @@ typedef struct __attribute__((packed))
 	routing_packet_info_data_t routing_packet_info_data;
 }routing_packet_test;
 
+typedef struct
+{
+	uint16_t addr;
+	int8_t rssi;
+}rssi_table_element_t;
+
+
 int send_routing_packets();
 int send_routing_start_pkts();
 int start_routing_seq(uint8_t device_type);
 uint16_t get_next_node_addr_to_beacon();
+void* get_rssi_table(int *size);
