@@ -1,6 +1,6 @@
 src/fast_crypto/fast_sha256.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/src/fast_crypto/fast_sha256.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/includes.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
@@ -65,7 +65,7 @@ src/fast_crypto/fast_sha256.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/crypto.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/common.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/includes.h:
 

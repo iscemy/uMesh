@@ -1,6 +1,6 @@
 newlib/port/syscall.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/port/syscall.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdio.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -63,7 +63,7 @@ newlib/port/syscall.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdio.h:
 

@@ -17,7 +17,7 @@ source/startup.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/lock.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/cdefs.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/nvs_flash/include/nvs_flash.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/nvs_flash/include/nvs.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_err.h \
@@ -130,7 +130,7 @@ source/startup.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/nvs_flash/include/nvs_flash.h:
 

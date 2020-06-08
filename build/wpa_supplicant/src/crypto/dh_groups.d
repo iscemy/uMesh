@@ -7,7 +7,7 @@ src/crypto/dh_groups.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/features.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/common.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/port/include/os.h \
@@ -86,7 +86,7 @@ src/crypto/dh_groups.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h:
 

@@ -1,6 +1,6 @@
-rx_tx_registerer.o: /build/tasarim_mesh/mesh/main/rx_tx_registerer.c \
- /build/tasarim_mesh/mesh/main/rx_tx_registerer.h \
- /build/tasarim_mesh/mesh/main/mesh_defs.h \
+rx_tx_registerer.o: /build/tasarim_mesh/uMesh/main/rx_tx_registerer.c \
+ /build/tasarim_mesh/uMesh/main/rx_tx_registerer.h \
+ /build/tasarim_mesh/uMesh/main/mesh_defs.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/features.h \
@@ -21,7 +21,7 @@ rx_tx_registerer.o: /build/tasarim_mesh/mesh/main/rx_tx_registerer.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/alloca.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -88,13 +88,13 @@ rx_tx_registerer.o: /build/tasarim_mesh/mesh/main/rx_tx_registerer.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/queue.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h \
- /build/tasarim_mesh/mesh/main/mesh_io.h \
+ /build/tasarim_mesh/uMesh/main/mesh_io.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h
 
-/build/tasarim_mesh/mesh/main/rx_tx_registerer.h:
+/build/tasarim_mesh/uMesh/main/rx_tx_registerer.h:
 
-/build/tasarim_mesh/mesh/main/mesh_defs.h:
+/build/tasarim_mesh/uMesh/main/mesh_defs.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h:
 
@@ -136,7 +136,7 @@ rx_tx_registerer.o: /build/tasarim_mesh/mesh/main/rx_tx_registerer.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 
@@ -270,9 +270,9 @@ rx_tx_registerer.o: /build/tasarim_mesh/mesh/main/rx_tx_registerer.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h:
 
-/build/tasarim_mesh/mesh/main/mesh_io.h:
+/build/tasarim_mesh/uMesh/main/mesh_io.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h:
-/build/tasarim_mesh/mesh/main/./rx_tx_registerer.c:
+/build/tasarim_mesh/uMesh/main/./rx_tx_registerer.c:

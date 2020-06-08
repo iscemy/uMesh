@@ -1,5 +1,5 @@
-rtc_storage.o: /build/tasarim_mesh/mesh/main/rtc_storage.c \
- /build/tasarim_mesh/mesh/main/rtc_storage.h \
+rtc_storage.o: /build/tasarim_mesh/uMesh/main/rtc_storage.c \
+ /build/tasarim_mesh/uMesh/main/rtc_storage.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -16,7 +16,7 @@ rtc_storage.o: /build/tasarim_mesh/mesh/main/rtc_storage.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/cdefs.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h
 
-/build/tasarim_mesh/mesh/main/rtc_storage.h:
+/build/tasarim_mesh/uMesh/main/rtc_storage.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 
@@ -47,4 +47,4 @@ rtc_storage.o: /build/tasarim_mesh/mesh/main/rtc_storage.c \
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/cdefs.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/string.h:
-/build/tasarim_mesh/mesh/main/./rtc_storage.c:
+/build/tasarim_mesh/uMesh/main/./rtc_storage.c:

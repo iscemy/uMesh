@@ -312,6 +312,7 @@ uint16_t get_next_node_addr_to_beacon(){
 			ret = routing_packet->routing_packet_info_data.data;
 			if(len > 1){
 				*((uint16_t*)0x60001200) = (routing_packet->routing_packet_info_data.data[(2*(len) - 3)]<<8) + (routing_packet->routing_packet_info_data.data[(2*(len) - 4)]);
+				*((uint16_t*)0x60001204) = len;
 				return (routing_packet->routing_packet_info_data.data[(2*(len) - 3)]<<8) + (routing_packet->routing_packet_info_data.data[(2*(len) - 4)]);
 			}
 			//ESP_LOGI(TAG,"@get_next_node_addr_to_beacon addr:%hx, num:%d",ret[0],routing_packet_array_index);

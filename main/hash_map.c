@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "hash_map.h"
-#define MAX_TABLE_SIZE 10
+#define MAX_TABLE_SIZE 100
 
 struct entry* table_array[MAX_TABLE_SIZE];
 int num_of_enrties = 0;

@@ -1,11 +1,11 @@
-product_main.o: /build/tasarim_mesh/mesh/main/product_main.c \
- /build/tasarim_mesh/mesh/main/product_main.h \
+product_main.o: /build/tasarim_mesh/uMesh/main/product_main.c \
+ /build/tasarim_mesh/uMesh/main/product_main.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/features.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -68,15 +68,16 @@ product_main.o: /build/tasarim_mesh/mesh/main/product_main.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/event_groups.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/timers.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/task.h \
- /build/tasarim_mesh/mesh/main/mesh.h \
- /build/tasarim_mesh/mesh/main/mesh_defs.h \
- /build/tasarim_mesh/mesh/main/softuart.h \
- /build/tasarim_mesh/mesh/main/sensor.h \
- /build/tasarim_mesh/mesh/main/rtc_storage.h \
+ /build/tasarim_mesh/uMesh/main/mesh.h \
+ /build/tasarim_mesh/uMesh/main/mesh_defs.h \
+ /build/tasarim_mesh/uMesh/main/softuart.h \
+ /build/tasarim_mesh/uMesh/main/sensor.h \
+ /build/tasarim_mesh/uMesh/main/rtc_storage.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/hw_timer.h \
- /build/tasarim_mesh/mesh/main/routing.h
+ /build/tasarim_mesh/uMesh/main/routing.h \
+ /build/tasarim_mesh/uMesh/main/servercomm.h
 
-/build/tasarim_mesh/mesh/main/product_main.h:
+/build/tasarim_mesh/uMesh/main/product_main.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h:
 
@@ -88,7 +89,7 @@ product_main.o: /build/tasarim_mesh/mesh/main/product_main.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 
@@ -214,17 +215,19 @@ product_main.o: /build/tasarim_mesh/mesh/main/product_main.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/task.h:
 
-/build/tasarim_mesh/mesh/main/mesh.h:
+/build/tasarim_mesh/uMesh/main/mesh.h:
 
-/build/tasarim_mesh/mesh/main/mesh_defs.h:
+/build/tasarim_mesh/uMesh/main/mesh_defs.h:
 
-/build/tasarim_mesh/mesh/main/softuart.h:
+/build/tasarim_mesh/uMesh/main/softuart.h:
 
-/build/tasarim_mesh/mesh/main/sensor.h:
+/build/tasarim_mesh/uMesh/main/sensor.h:
 
-/build/tasarim_mesh/mesh/main/rtc_storage.h:
+/build/tasarim_mesh/uMesh/main/rtc_storage.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/hw_timer.h:
 
-/build/tasarim_mesh/mesh/main/routing.h:
-/build/tasarim_mesh/mesh/main/./product_main.c:
+/build/tasarim_mesh/uMesh/main/routing.h:
+
+/build/tasarim_mesh/uMesh/main/servercomm.h:
+/build/tasarim_mesh/uMesh/main/./product_main.c:

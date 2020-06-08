@@ -1,5 +1,5 @@
 port/fcntl.o: /build/esp8266/ESP8266_RTOS_SDK/components/vfs/port/fcntl.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/fcntl.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/fcntl.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_default_fcntl.h \
@@ -57,7 +57,7 @@ port/fcntl.o: /build/esp8266/ESP8266_RTOS_SDK/components/vfs/port/fcntl.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/errno.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/errno.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/fcntl.h:
 

@@ -27,7 +27,7 @@ src/spi_flash.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/spi_register.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/pin_mux_register.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
@@ -98,7 +98,7 @@ src/spi_flash.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h:
 

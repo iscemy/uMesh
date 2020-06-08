@@ -8,7 +8,7 @@ library/ssl_stack.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/internal/x509_vfy.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/internal/ssl_dbg.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/platform/ssl_opt.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/platform/ssl_port.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/cdefs.h \
@@ -53,7 +53,7 @@ library/ssl_stack.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/platform/ssl_opt.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/openssl/include/platform/ssl_port.h:
 

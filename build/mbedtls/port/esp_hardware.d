@@ -1,7 +1,7 @@
 port/esp_hardware.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/esp_hardware.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/include/mbedtls/esp_config.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/config.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/limits.h \
@@ -38,7 +38,7 @@ port/esp_hardware.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/include/mbedtls/esp_config.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/config.h:
 

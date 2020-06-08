@@ -1,6 +1,6 @@
 src/fast_crypto/fast_aes-unwrap.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/src/fast_crypto/fast_aes-unwrap.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/includes.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
@@ -71,7 +71,7 @@ src/fast_crypto/fast_aes-unwrap.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/esp8266/include/aes_alt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/esp_aes.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/includes.h:
 

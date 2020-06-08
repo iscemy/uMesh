@@ -28,6 +28,10 @@
 #include "sensor.h"
 #include "product_main.h"
 
+#include <mqtt_client.h>
+
+#include "servercomm.h"
+
 #define TAG "sniffer"
 
 #define MAC_HEADER_LEN 24
@@ -73,25 +77,111 @@ static void sniffer_task(void* pvParameters)
 
     xEventGroupWaitBits(wifi_event_group, START_BIT,
                         false, true, portMAX_DELAY);
-    ESP_ERROR_CHECK(esp_wifi_set_channel(CONFIG_CHANNEL, 0));
+    //ESP_ERROR_CHECK(esp_wifi_set_channel(CONFIG_CHANNEL, 0));
     ESP_ERROR_CHECK(esp_wifi_set_promiscuous_rx_cb(register_rx_tx(esp_wifi_80211_tx)));
     ESP_ERROR_CHECK(esp_wifi_set_promiscuous_filter(&sniffer_filter));
     ESP_ERROR_CHECK(esp_wifi_set_promiscuous(true));
     vTaskDelete(NULL);
+    return 0;
 }
 
-static esp_err_t event_handler(void* ctx, system_event_t* event)
+const static int CONNECTED_BIT = BIT0;
+static esp_err_t event_handler(void *ctx, system_event_t *event)
 {
+    /* For accessing reason codes in case of disconnection */
+    system_event_info_t *info = &event->event_info;
+    
     switch (event->event_id) {
         case SYSTEM_EVENT_STA_START:
             xEventGroupSetBits(wifi_event_group, START_BIT);
+            esp_wifi_connect();
             break;
+        case SYSTEM_EVENT_STA_GOT_IP:
+            xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
 
+            break;
+        case SYSTEM_EVENT_STA_DISCONNECTED:
+            ESP_LOGE(TAG, "Disconnect reason : %d", info->disconnected.reason);
+            if (info->disconnected.reason == WIFI_REASON_BASIC_RATE_NOT_SUPPORT) {
+                /*Switch to 802.11 bgn mode */
+                esp_wifi_set_protocol(ESP_IF_WIFI_STA, WIFI_PROTOCAL_11B | WIFI_PROTOCAL_11G | WIFI_PROTOCAL_11N);
+            }
+            esp_wifi_connect();
+            xEventGroupClearBits(wifi_event_group, CONNECTED_BIT);
+            break;
         default:
             break;
     }
-
     return ESP_OK;
+}
+
+static esp_err_t mqtt_event_handler(esp_mqtt_event_handle_t event)
+{
+    esp_mqtt_client_handle_t client = event->client;
+    int msg_id, size;
+    // your_context_t *context = event->context;
+    switch (event->event_id) {
+        case MQTT_EVENT_CONNECTED:
+            ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
+            char *ptr = (char*)get_all_data(&size);
+            ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED %p", ptr);
+            if(ptr != NULL){
+                ESP_LOGI(TAG, "TRYING TO SEND");
+                esp_mqtt_client_publish(client, "/topic/tasarimm", ptr, 0, 0, 0);
+            }
+            free(ptr);
+            //msg_id = esp_mqtt_client_publish(client, "/topic/qos1", "data_3", 0, 1, 0);
+
+            break;
+        case MQTT_EVENT_DISCONNECTED:
+            ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
+            break;
+
+        case MQTT_EVENT_SUBSCRIBED:
+            ESP_LOGI(TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
+            msg_id = esp_mqtt_client_publish(client, "/topic/qos0", "data", 0, 0, 0);
+            ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
+            break;
+        case MQTT_EVENT_UNSUBSCRIBED:
+            ESP_LOGI(TAG, "MQTT_EVENT_UNSUBSCRIBED, msg_id=%d", event->msg_id);
+            break;
+        case MQTT_EVENT_PUBLISHED:
+            ESP_LOGI(TAG, "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
+            break;
+        case MQTT_EVENT_DATA:
+            ESP_LOGI(TAG, "MQTT_EVENT_DATA");
+            printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
+            printf("DATA=%.*s\r\n", event->data_len, event->data);
+            break;
+        case MQTT_EVENT_ERROR:
+            ESP_LOGI(TAG, "MQTT_EVENT_ERROR");
+            break;
+    }
+    return ESP_OK;
+}
+
+esp_mqtt_client_config_t mqtt_cfg = {
+    .uri = "mqtt://test.mosquitto.org:1883",
+    .event_handle = mqtt_event_handler,
+    // .user_context = (void *)your_context
+};
+
+esp_mqtt_client_handle_t client;
+
+void mqtt_app_start(void)
+{
+    esp_mqtt_client_config_t mqtt_cfg = {
+        .uri = "mqtt://test.mosquitto.org:1883",
+        .event_handle = mqtt_event_handler,
+        // .user_context = (void *)your_context
+    };
+
+    client = esp_mqtt_client_init(&mqtt_cfg);
+    esp_mqtt_client_start(client);
+}
+
+void mqtt_stop(){
+    esp_mqtt_client_stop(client);
 }
 
 static void initialise_wifi(void)
@@ -106,53 +196,80 @@ static void initialise_wifi(void)
     ESP_ERROR_CHECK(esp_wifi_start());
 }
 
+void init_wifi_for_mesh(){
+        
+    ESP_ERROR_CHECK(esp_wifi_stop());  
+    ESP_ERROR_CHECK(esp_wifi_deinit())
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+    ESP_ERROR_CHECK(0x0);
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_start());
+
+}
+
+void init_wifi_sta(){
+    ESP_ERROR_CHECK(esp_wifi_set_promiscuous(false));  
+    ESP_ERROR_CHECK(esp_wifi_stop());  
+    ESP_ERROR_CHECK(esp_wifi_deinit()); 
+   
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+    ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
+    wifi_config_t wifi_config = {
+        .sta = {
+            .ssid = "ASUS",
+            .password = "22200109",
+        },
+    };
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
+
+    ESP_ERROR_CHECK(esp_wifi_start());
+    ESP_LOGI(TAG, "Waiting for wifi");
+    xEventGroupWaitBits(wifi_event_group, CONNECTED_BIT, false, true, portMAX_DELAY);
+}
+
+
+TaskHandle_t meshng_task_handle;
+
+void start_mesh(struct meshng_parameters_t* parameters){
+    ESP_LOGI(TAG,"MESHNG START: %ld",xTaskCreate(&start_meshng, "routing_task", 2048, parameters, 11, &meshng_task_handle));
+}
+
+void wifi_set_sta(){
+    vTaskSuspend(meshng_task_handle);
+    init_wifi_sta();
+    
+    
+}
+
+void wifi_set_mesh(){
+    //mqtt_stop();
+    init_wifi_for_mesh();     
+    xTaskCreate(&sniffer_task, "sniffer_task", 2048, NULL, 10, NULL);
+    vTaskDelay(200 / portTICK_PERIOD_MS);
+    esp_wifi_set_channel(4,WIFI_SECOND_CHAN_NONE);
+    vTaskResume(meshng_task_handle);
+}
 
 void init_hw(struct meshng_parameters_t* parameters)
 {
     ESP_ERROR_CHECK(nvs_flash_init());
     initialise_wifi();
-    xTaskCreate(&sniffer_task, "sniffer_task", 2048, NULL, 10, NULL);
-    //xTaskCreate(&start_routing_seq, "routing_task", 2048, NULL, 9, NULL);
-    //xTaskCreate(&, "print_task", 2048, NULL, 10, NULL);
-
-  
-    esp_wifi_set_channel(4,WIFI_SECOND_CHAN_NONE);
-         
-//   uint8_t test_str[] = "0EST_DATA_TO_BEACON 0x2222";
-//   const char testasd[] = "assasdasd";
-
-    esp_wifi_set_max_tx_power(-128);
-    //start_routing_seq(0); //0b 1s
-//    ESP_LOGI("sniffer","routing :%hx\n", get_next_node_addr_to_beacon());
-   //struct meshng_parameters_t parameters;
-   vTaskDelay(100 / portTICK_PERIOD_MS);
-   //start_meshng(sta,0x2222);
-   ESP_LOGI(TAG,"MESHNG START: %ld",xTaskCreate(&start_meshng, "routing_task", 4096, parameters, 11, NULL));
-//   xTaskCreate(&start_meshng, "routing_task", 2048, &parameters, 9, NULL);
     
-//	if(send_to_beacon(test_str, sizeof(test_str)) == 0){
+    xTaskCreate(&sniffer_task, "sniffer_task", 2048, NULL, 10, NULL);
 
-//	}					   rx  tx
+    vTaskDelay(200 / portTICK_PERIOD_MS);
 
+    esp_wifi_set_channel(4,WIFI_SECOND_CHAN_NONE);
+    mqtt_app_start();
+    esp_wifi_set_max_tx_power(60);
+#if DEV_TYPE == BEACON
+    start_mesh(parameters);
+#else
+    start_mesh(parameters);
+#endif
 
- //   softuart_open(0, 9600, 14, 13);
- //   init_sensors();
- //   sensor_data_packet_t sensor_datas;
- //   char flash_w_test = "123";
-
-
-    //product_main_task();
-    //while(1){
-        //ESP_LOGI(TAG,"%d",esp_wifi_80211_tx(WIFI_IF_STA, beacon_raw, sizeof(beacon_raw), 1));
-        //ESP_LOGI(TAG,"%d",esp_wifi_80211_tx(WIFI_IF_STA, frame_buffer+frame_buffer[4], 40, 1));
-//	    for (int index = 0; index < 5; index++){
-
-//		}
-        
-
-
-
-   
-   // }
 
 }

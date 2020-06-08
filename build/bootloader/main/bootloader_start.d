@@ -1,6 +1,6 @@
 bootloader_start.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader/subproject/main/bootloader_start.c \
- /build/tasarim_mesh/mesh/build/bootloader/../include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/bootloader/../include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_config.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include/esp_flash_data_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_init.h \
@@ -18,7 +18,7 @@ bootloader_start.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h
 
-/build/tasarim_mesh/mesh/build/bootloader/../include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/bootloader/../include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_config.h:
 

@@ -95,6 +95,13 @@ void rx_callback(void* buf, wifi_promiscuous_pkt_type_t type){
 
 int hw_tx_adapter(unsigned char *buf, unsigned int len){
     int ret = (*tx_func)(0, buf, len, 1);
+    ESP_LOGI("TX PACKET_DUMP",":");
+    for(int i = 0; i < len; i++){
+        printf("%hx ",*(buf + i));
+    }
+    printf("\n");
+
+
     if (ret == -1){
 	    ESP_LOGE("sniffer","GONDERILEMEDI");
     }
@@ -113,8 +120,24 @@ uint8_t local_seq = 0;
 int tx_data_blocking(general_payload_t *buf_payload, unsigned short len){
 
 	unsigned char *buff = buf_payload;
-	buf_payload->seq_id = local_seq;
-	local_seq++;
+	//buf_payload->seq_id = local_seq;
+	//local_seq++;
+	ESP_LOGI(TAG,"@ tx_data_blocking %d", len);
+    if(len < 75){
+        buffer->hdr.frame_ctrl = 0x0080;
+        buffer->b_top.tag_len = len;
+        memcpy(buffer->payload,buff,len); 
+        memcpy(buffer->hdr.addr1,unique,6);
+	    return hw_tx_adapter(buffer, sizeof(wifi_ieee80211_mac_hdr_t)+sizeof(wifi_ieee80211_beacon_top_t)+len);
+    }else{
+
+        return -1;//bigger then max tx size
+    }
+}
+
+int tx_data_blocking_woseq(general_payload_t *buf_payload, unsigned short len){
+
+	unsigned char *buff = buf_payload;
 	ESP_LOGI(TAG,"@ tx_data_blocking %d", len);
     if(len < 75){
         buffer->hdr.frame_ctrl = 0x0080;

@@ -1,6 +1,6 @@
 source/reset_reason.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/source/reset_reason.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -40,7 +40,7 @@ source/reset_reason.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_config.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 

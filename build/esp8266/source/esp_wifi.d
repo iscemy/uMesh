@@ -1,6 +1,6 @@
 source/esp_wifi.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/source/esp_wifi.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_libc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
@@ -89,7 +89,7 @@ source/esp_wifi.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/source/phy.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_phy_init.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_libc.h:
 

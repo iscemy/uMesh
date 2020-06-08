@@ -1,6 +1,6 @@
 src/base64.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/src/base64.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/esp_base64.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
@@ -22,7 +22,7 @@ src/base64.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/lock.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/util/include/esp_base64.h:
 

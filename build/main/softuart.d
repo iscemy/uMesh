@@ -1,5 +1,5 @@
-softuart.o: /build/tasarim_mesh/mesh/main/softuart.c \
- /build/tasarim_mesh/mesh/main/softuart.h \
+softuart.o: /build/tasarim_mesh/uMesh/main/softuart.c \
+ /build/tasarim_mesh/uMesh/main/softuart.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/features.h \
@@ -24,14 +24,14 @@ softuart.o: /build/tasarim_mesh/mesh/main/softuart.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/stdio.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/pin_mux_register.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/gpio_register.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h
 
-/build/tasarim_mesh/mesh/main/softuart.h:
+/build/tasarim_mesh/uMesh/main/softuart.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h:
 
@@ -81,7 +81,7 @@ softuart.o: /build/tasarim_mesh/mesh/main/softuart.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h:
 
@@ -92,4 +92,4 @@ softuart.o: /build/tasarim_mesh/mesh/main/softuart.c \
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/gpio_register.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
-/build/tasarim_mesh/mesh/main/./softuart.c:
+/build/tasarim_mesh/uMesh/main/./softuart.c:

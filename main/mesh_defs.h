@@ -39,7 +39,8 @@ struct meshng_parameters_t{
 enum packet_types{
 	data = 0,
 	routing_seq_start,
-	routing_broadcast
+	routing_broadcast,      
+    broadcast_commands
 	//
 };
 

@@ -1,6 +1,6 @@
 src/flash_partitions.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/src/flash_partitions.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -36,7 +36,7 @@ src/flash_partitions.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log_internal.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/rom_functions.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 

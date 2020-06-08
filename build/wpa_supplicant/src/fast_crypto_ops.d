@@ -1,6 +1,6 @@
 src/fast_crypto_ops.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/src/fast_crypto_ops.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/common.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/port/include/os.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_types.h \
@@ -82,7 +82,7 @@ src/fast_crypto_ops.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/eap/eap_defs.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/eap/eap_common.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/wpa_supplicant/include/crypto/common.h:
 

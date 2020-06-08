@@ -1,6 +1,6 @@
 transport_ws.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/tcp_transport/transport_ws.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdlib.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/ieeefp.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
@@ -55,7 +55,7 @@ transport_ws.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/esp8266/include/sha1_alt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/esp_sha.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdlib.h:
 

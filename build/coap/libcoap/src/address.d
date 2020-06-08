@@ -11,7 +11,7 @@ libcoap/src/address.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/inet.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/opt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/port/include/time.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/time.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/reent.h \
@@ -83,7 +83,7 @@ libcoap/src/address.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/port/include/time.h:
 

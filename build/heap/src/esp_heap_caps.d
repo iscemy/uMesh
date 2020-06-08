@@ -21,7 +21,7 @@ src/esp_heap_caps.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/endian.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/param.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_err.h \
@@ -83,7 +83,7 @@ src/esp_heap_caps.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h:
 

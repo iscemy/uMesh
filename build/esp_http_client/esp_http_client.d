@@ -25,7 +25,7 @@ esp_http_client.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/sched.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/stdio.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
@@ -137,7 +137,7 @@ esp_http_client.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h:
 

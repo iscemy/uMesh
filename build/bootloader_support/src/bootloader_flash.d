@@ -1,6 +1,6 @@
 src/bootloader_flash.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/src/bootloader_flash.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/features.h \
@@ -31,7 +31,7 @@ src/bootloader_flash.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/spi_flash/include/esp_spi_flash.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/spi_flash/include/spi_flash.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h:
 

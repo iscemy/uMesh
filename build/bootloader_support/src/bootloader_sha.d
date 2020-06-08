@@ -1,6 +1,6 @@
 src/bootloader_sha.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/src/bootloader_sha.c \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_sha.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
@@ -37,7 +37,7 @@ src/bootloader_sha.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/mbedtls/port/esp8266/include/sha256_alt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/util/include/esp_sha.h
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_sha.h:
 

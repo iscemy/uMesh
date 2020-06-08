@@ -1,4 +1,4 @@
-hash_map.o: /build/tasarim_mesh/mesh/main/hash_map.c \
+hash_map.o: /build/tasarim_mesh/uMesh/main/hash_map.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -22,7 +22,7 @@ hash_map.o: /build/tasarim_mesh/mesh/main/hash_map.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/sched.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/stdio.h \
- /build/tasarim_mesh/mesh/main/hash_map.h
+ /build/tasarim_mesh/uMesh/main/hash_map.h
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/string.h:
 
@@ -70,5 +70,5 @@ hash_map.o: /build/tasarim_mesh/mesh/main/hash_map.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/stdio.h:
 
-/build/tasarim_mesh/mesh/main/hash_map.h:
-/build/tasarim_mesh/mesh/main/./hash_map.c:
+/build/tasarim_mesh/uMesh/main/hash_map.h:
+/build/tasarim_mesh/uMesh/main/./hash_map.c:

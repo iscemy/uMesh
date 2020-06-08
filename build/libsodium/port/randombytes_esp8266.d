@@ -27,7 +27,7 @@ port/randombytes_esp8266.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/reent.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/stdio.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h
 
 /build/esp8266/ESP8266_RTOS_SDK/components/libsodium/port/randombytes_default.h:
@@ -84,7 +84,7 @@ port/randombytes_esp8266.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h:
 /build/esp8266/ESP8266_RTOS_SDK/components/libsodium/port/randombytes_esp8266.c:

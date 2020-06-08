@@ -19,7 +19,7 @@ smartconfig_ack.o: \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/stdlib.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/alloca.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/posix/sys/socket.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/sockets.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/opt.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/lwip/port/esp8266/include/lwipopts.h \
@@ -138,7 +138,7 @@ smartconfig_ack.o: \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/posix/sys/socket.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/lwip/lwip/src/include/lwip/sockets.h:
 

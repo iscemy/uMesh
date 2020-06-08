@@ -1,12 +1,12 @@
-dht.o: /build/tasarim_mesh/mesh/main/dht.c \
- /build/tasarim_mesh/mesh/main/dht.h \
+dht.o: /build/tasarim_mesh/uMesh/main/dht.c \
+ /build/tasarim_mesh/uMesh/main/dht.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/_default_types.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/features.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
- /build/tasarim_mesh/mesh/build/include/sdkconfig.h \
+ /build/tasarim_mesh/uMesh/build/include/sdkconfig.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdlib.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/ieeefp.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
@@ -61,7 +61,7 @@ dht.o: /build/tasarim_mesh/mesh/main/dht.c \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/gpio_register.h
 
-/build/tasarim_mesh/mesh/main/dht.h:
+/build/tasarim_mesh/uMesh/main/dht.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h:
 
@@ -75,7 +75,7 @@ dht.o: /build/tasarim_mesh/mesh/main/dht.c \
 
 /build/esp8266/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
-/build/tasarim_mesh/mesh/build/include/sdkconfig.h:
+/build/tasarim_mesh/uMesh/build/include/sdkconfig.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdlib.h:
 
@@ -182,4 +182,4 @@ dht.o: /build/tasarim_mesh/mesh/main/dht.c \
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h:
 
 /build/esp8266/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/gpio_register.h:
-/build/tasarim_mesh/mesh/main/./dht.c:
+/build/tasarim_mesh/uMesh/main/./dht.c:
